@@ -1,0 +1,42 @@
+<div>
+    <div class="card">
+        <div>
+            <h2>{{post.title}}</h2>
+        </div>
+        <div>
+            <p>Posted by: {{post.User.username}}</p>
+        </div>
+        <div>
+            {{post.body}}
+        </div>
+    </div>
+    {{#if post.Comment}}
+    <section>
+        <div>
+            <h2>Comments</h2>
+        </div>
+        {{#each post.Comment}}
+        <div>
+            <p>
+                {{body}}
+            </p>
+            <p>
+                {{User.username}}
+            </p>
+        </div>
+        {{/each}}
+
+
+    </section>
+    {{/if}}
+
+    <form id="new comment">
+        <div>
+            <input type="hidden" name="postId" value="{{post.id}}">
+            <label for="comment-body" class="label"> comment </label>
+            <textarea name="comment-body" id="formInput" cols="30" rows="10"></textarea>
+            <button type="submit" class="submitButton">submit</button>
+        </div>
+    </form>
+</div>
+<script src="/js/comment.js"></script>
