@@ -1,8 +1,9 @@
 const signupForm = async function(event) {
     event.preventDefault();
-  
-    const usernameEl = document.querySelector('#username');
-    const passwordEl = document.querySelector('#password');
+    console.log("hello")
+
+    const usernameEl = document.querySelector('#username-signup');
+    const passwordEl = document.querySelector('#password-signup');
   
     const response = await fetch('/api/user', {
       method: 'POST',
@@ -13,6 +14,7 @@ const signupForm = async function(event) {
       headers: { 'Content-Type': 'application/json' },
     });
   
+    console.log(response)
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
@@ -21,5 +23,5 @@ const signupForm = async function(event) {
   };
   
   document
-    .querySelector('#signupButton')
+    .querySelector('#signup')
     .addEventListener('submit', signupForm);

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User} = require('../../models');
+console.log("userRoutes")
 
 router.post("/", async(req, res) => {
     try{
@@ -14,6 +15,7 @@ router.post("/", async(req, res) => {
             res.json(createUser)
         })
 
+        console.log(createUser)
     }catch(err){
         res.status(500).json(err)
     }

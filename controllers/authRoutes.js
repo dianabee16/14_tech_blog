@@ -45,3 +45,5 @@ router.get("/edit/:id", withAuth, async (req, res) => {
         res.redirect("login")
     }
 })
+
+module.exports = router
