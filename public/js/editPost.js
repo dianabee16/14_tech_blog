@@ -2,7 +2,7 @@ const clickedPost = document.querySelector("input[name='post-id']").value;
 const editPost = async function(event){
     event.preventDefault()
     const titleEl = document.querySelector("input[name='edit-post-title']").value;
-    const bodyEl = document.querySelector("input[name='edit-post-body']").value;
+    const bodyEl = document.querySelector("textarea[name='edit-post-body']").value;
     await fetch(`/api/post/${clickedPost}`, {
         method: "PUT",
         body: JSON.stringify({
