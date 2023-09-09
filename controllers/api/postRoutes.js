@@ -33,20 +33,32 @@ router.post('/', withAuth, async (req, res) => {
 
   router.put('/:id', withAuth, async (req, res) => {
     try {
-      const [affectedRows] = await Post.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
+     
+      const post = await Post.findByPk(req.params.id);
+  
+      if (!post) {
+       
+        return res.status(404).end();
+      }
+  
+      
+      const updatedPost = await Post.update(req.body, {
+        where:{ id: req.params.id}
       });
   
-      if (affectedRows > 0) {
-        res.status(200).end();
+      if (updatedPost) {
+       
+        return res.status(200).json(updatedPost);
       } else {
-        res.status(404).end();
+        
+        return res.status(500).json({ error: "Failed to update post." });
       }
     } catch (err) {
-      res.status(500).json(err);
+     
+      console.error(err);
+      return res.status(500).json({ error: "An error occurred while updating the post." });
     }
   });
+  
 
   module.exports = router

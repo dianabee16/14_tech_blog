@@ -15,7 +15,8 @@
         <div>
             <h2>Comments</h2>
         </div>
-        {{#each post.Comment}}
+        <section class="comment-box">        
+        {{#each post.Comments}}
         <div>
             <p>
                 {{body}}
@@ -26,16 +27,16 @@
         </div>
         {{/each}}
 
-
+       </section>
     </section>
     {{/if}}
 
-    <form id="new-comment">
+    <form id="new-comment" class="form-border"> 
         <div>
             <input type="hidden" name="postId" value="{{post.id}}">
             <label for="comment-body" class="label"> comment </label>
-            <textarea name="comment-body" id="formInput" cols="30" rows="10"></textarea>
-            <button type="submit" class="submitButton">submit</button>
+            <textarea name="comment-body" id="formInput"></textarea>
+            <button type="submit" class="submitButton btn">submit</button>
         </div>
     </form>
 </div>

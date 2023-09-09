@@ -2,17 +2,20 @@
     <div>
         <h2>Edit a post</h2>
     </div>
-    <form id="edit-post">
-        <div>
+    <form id="edit-post" class="form-border">
+        <div class="form-title">
             <input type="hidden" name="post-id" value="{{post.id}}">
             <label for="edit-post-title">Title</label>
             <input type="text" name = "edit-post-title" value="{{post.title}}" class="title">
         </div>
-        <div>
+        <div class="form-body">
             <label for="edit-post-body" class="label"> edit post </label>
             <textarea name="edit-post-body" id="formInput" cols="30" rows="10">{{post.body}}</textarea>
-            <button type="submit" class="submitButton">Update</button>
-            <button type="button" id="delete">Delete</button>
+            <div class="button-wrap">
+            <button type="submit" class="submitButton btn">Update</button>
+            <button type="button" class="btn" id="delete">Delete</button>
+            </div>
+            
         </div>
     </form>
 </div>
